@@ -17,69 +17,56 @@ int main()
     //MainWindow w;
     //w.show();
     int payout = 0;
+    char input;
     Deck deck;
     Hand hand;
-    deck.shuffle();
 
-    for(int  i=0;i<5;++i)
-    {
-        hand.addCard(deck.draw());
-        std::cout << hand.toString() << std::endl;
 
-    }
-    if(hand.isPair())
+    do
     {
-        std::cout << "Found a Pair!" << std::endl;
+        switch(input)
+        {
 
-    }
-    if(hand.isThreeOfKind())
-    {
-        std::cout << "Found a Three of a kind!" << std::endl;
-        payout = 3;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isFourOfKind())
-    {
-        std::cout << "Found a Four of a kind!" << std::endl;
-        payout = 25;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isFullHouse())
-    {
-        std::cout << "Found a FullHouse!" << std::endl;
-        payout = 9;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isTwoPair())
-    {
-        std::cout << "Found Two pairs!" << std::endl;
-        payout = 2;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isStraight())
-    {
-        std::cout << "Found a Straight!" << std::endl;
-        payout = 4;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isFlush())
-    {
-        std::cout << "Found a flush!" << std::endl;
-        payout = 6;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isStraightFlush())
-    {
-        std::cout << "Found a StraightFlush!" << std::endl;
-        payout = 50;
-        std::cout << "You win " << payout << std::endl;
-    }
-    if(hand.isRoyalStriaght())
-    {
-        std::cout << "Found a RoyalStraight!" << std::endl;
-        payout = 250;
-        std::cout << "You win " << payout << std::endl;
-    }
+           case 'w':
+           {
+             hand.welcome();
+             break;
+           }
+           case 'p':
+           {
+             hand.play();
+
+             std::cout << "Would you like to play again? y/n" << std::endl;
+             std::cin >> input;
+             input = tolower(input);
+             if(input == 'y')
+             {
+                 input == 'p';
+             }
+             else if(input == 'n')
+             {
+                 input == 'q';
+             }
+             break;
+           }
+           case 't':
+           {
+             hand.payTable();
+             break;
+           }
+           case 'q':
+           {
+             break;
+           }
+           default:
+           {
+            std::cout << "please enter one four characters, W for welcome, P for play, T for pay table and Q to quit." << std::endl;
+           }
+        }
+    }while(input != 'q');
+
+
+
 
     return 0;
 }

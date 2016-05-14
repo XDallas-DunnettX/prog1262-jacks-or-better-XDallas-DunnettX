@@ -7,7 +7,7 @@
 #include <map>
 
 enum class Suit{CLUB = 1, DIAMOND, HEART, SPADE};
-enum class Face{TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
+enum class Face{TWO = 1,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
 
 struct Card
 {
